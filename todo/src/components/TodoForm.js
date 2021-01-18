@@ -1,10 +1,12 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 
 function TodoForm() {
+// const [ state, dispatch ] = useReducer(reduced, initialState)
 
   const handleSubmit = () => {
     console.log("submit")
   }
+
   return (
     <form onSubmit={handleSubmit}>
     <input

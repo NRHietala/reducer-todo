@@ -1,10 +1,11 @@
 import './App.css';
-import React, { useState } from 'react';
+import React, { useState, useReducer } from 'react';
 
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import reducer from './reducers/todoReducer';
 
-const initialTodos = [
+const initialState = [
   {
   task: 'Pet Porcupine',
   id: Date.now(),
@@ -15,10 +16,11 @@ const initialTodos = [
   id: Date.now(),
   completed: false
 },
-]
+];
 
 function App() {
-  const [ todos, setTodos ] = useState(initialTodos)
+  const [ todos, setTodos ] = useState(initialState)
+  // const [ state, dispatch ] = useReducer(reducer, initialState)
     
   return (
     <div className="App">
