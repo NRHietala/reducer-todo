@@ -3,12 +3,12 @@
 export const initialState = [
   {
   task: 'Pet Porcupine',
-  id: Date.now(),
+  id: 1,
   completed: false
 },
 {
   task: 'Walk Elephant',
-  id: Date.now(),
+  id: 2,
   completed: false
 },
 ];

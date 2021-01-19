@@ -9,18 +9,18 @@ import { reducer, initialState } from './reducers/todoReducer';
 function App() {
   // const [ state, dispatch ] = useReducer(reducer, initialState);
   const [ todos, setTodos ] = useState(initialState);
-  const [ filteredTodos, setFilteredTodos ] = useState();
 
   
   const setTodoCompleted = todoId => {
-    todos.map(todo => {
+    setTodos(todos.map(todo => {
       if(todo.id === todoId) {
         return {
-          ...todo, completed:!todo.completed
+          ...todo, 
+          completed:!todo.completed
         }
       }
       return todo;
-    });
+    }));
   }
 
   const addTodo = todoName => {
@@ -41,7 +41,7 @@ function App() {
     const newTodos = todos.filter(todo => {
       return (!todo.completed)
     });
-    setFilteredTodos(newTodos);
+    setTodos(newTodos);
   }
     
   return (
@@ -50,6 +50,8 @@ function App() {
         <TodoForm addTodo={addTodo}/>
         <TodoList 
         todos={todos}
+        filterCompletedTodos={filterCompletedTodos}
+        setTodoCompleted={setTodoCompleted}
         />
     </div>
   );

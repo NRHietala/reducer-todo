@@ -1,10 +1,12 @@
 import React from 'react'
 
 const Todo = (props) => {
-const { todo : { task, id, completed } } = props;
+const { setTodoCompleted, todo : { task, id, completed } } = props;
+
   const handleClick = () => {
-    console.log('clicked');
+    setTodoCompleted(id);
   }
+
   return (
     <div onClick={handleClick}
     className={`todo ${completed? "strike":""}`}>
