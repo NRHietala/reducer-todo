@@ -1,56 +1,43 @@
 import './App.css';
-import React, { useState, useReducer } from 'react';
+import React, { useReducer } from 'react';
 
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 import { reducer, initialState } from './reducers/todoReducer';
+import { setTodo } from './actions/todoActions';
 
 
 function App() {
-  // const [ state, dispatch ] = useReducer(reducer, initialState);
-  const [ todos, setTodos ] = useState(initialState);
+  const [ state, dispatch ] = useReducer(reducer, initialState);
+  
 
   
   const setTodoCompleted = todoId => {
-    setTodos(todos.map(todo => {
-      if(todo.id === todoId) {
-        return {
-          ...todo, 
-          completed:!todo.completed
-        }
-      }
-      return todo;
-    }));
+    dispatch(setTodoCompleted(todoId))
   }
 
   const addTodo = todoName => {
-    const addedTodo = {
-      task:todoName,
-      id:Date.now(),
-      completed:false
+    dispatch(setTodo(todoName))
     };
 
-    const updatedTodos = [...todos, addedTodo];
+  // const filterCompletedTodos = () => {
+  //   const newTodos = todos.filter(todo => {
+  //     return (!todo.completed)
+  //   });
+  //   setTodos(newTodos);
+  // }
 
-    setTodos(updatedTodos);
-    console.log(updatedTodos)
-    console.log(todos)
-  }
-
-  const filterCompletedTodos = () => {
-    const newTodos = todos.filter(todo => {
-      return (!todo.completed)
-    });
-    setTodos(newTodos);
-  }
-    
+    console.log(state)
   return (
     <div className="App">
         <h2>useReducer Todo App</h2>
-        <TodoForm addTodo={addTodo}/>
+        {/* <button onClick={handleClick}>test button</button> */}
+        <TodoForm 
+        addTodo={addTodo}
+        />
         <TodoList 
-        todos={todos}
-        filterCompletedTodos={filterCompletedTodos}
+        todos={state.todos}
+        // filterCompletedTodos={filterCompletedTodos}
         setTodoCompleted={setTodoCompleted}
         />
     </div>

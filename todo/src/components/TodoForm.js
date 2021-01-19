@@ -8,15 +8,12 @@ const { addTodo } = props;
 
 const handleChange = e => {
   setInputValue(e.target.value)
-  console.log(inputValue)
-}
+};
 
   const handleSubmit = e => {
     e.preventDefault();
-    addTodo(inputValue)
-    setInputValue("")
-
-  }
+    addTodo(inputValue);
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -32,4 +29,4 @@ const handleChange = e => {
   )
 }
 
-export default TodoForm
+export default TodoForm;

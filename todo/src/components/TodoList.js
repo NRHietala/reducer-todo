@@ -3,14 +3,14 @@ import React from 'react'
 import Todo from './Todo';
 
 const TodoList = (props) => {
-  const { todos, filterCompletedTodos, setTodoCompleted } = props;
+  const { filterCompletedTodos, setTodoCompleted } = props;
 
   const handleClick = () => {
     filterCompletedTodos();
   }
   return (
     <div className='todoList'>
-        {todos.map(todo => {
+        {props.todos.map(todo => {
           return <Todo key={todo.id}
           todo={todo}
           filterCompletedTodos={filterCompletedTodos}
@@ -22,4 +22,4 @@ const TodoList = (props) => {
   )
 }
 
-export default TodoList
+export default TodoList;
