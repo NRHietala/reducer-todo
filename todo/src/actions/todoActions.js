@@ -13,6 +13,6 @@ export const setTodoCompleted = todoId => {
   });
 };
 
-// export const clearCompleted = () => {
-//   return ({ type: CLEAR_COMPLETED, payload:  })
-// }
+export const clearCompleted = () => {
+  return ({ type: CLEAR_COMPLETED})
+}

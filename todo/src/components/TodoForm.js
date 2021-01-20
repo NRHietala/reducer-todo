@@ -4,7 +4,7 @@ function TodoForm(props) {
 // const [ state, dispatch ] = useReducer(reduced, initialState)
 const [ inputValue, setInputValue ] = useState("");
 
-const { addTodo } = props;
+const { handleAddTodo } = props;
 
 const handleChange = e => {
   setInputValue(e.target.value)
@@ -12,7 +12,7 @@ const handleChange = e => {
 
   const handleSubmit = e => {
     e.preventDefault();
-    addTodo(inputValue);
+    handleAddTodo(inputValue);
   };
 
   return (

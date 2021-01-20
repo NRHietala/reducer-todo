@@ -1,10 +1,10 @@
 import React from 'react'
 
 const Todo = (props) => {
-const { setTodoCompleted, todo : { task, id, completed } } = props;
+const { handleSetTodoCompleted, todo : { task, id, completed } } = props;
 
   const handleClick = () => {
-    setTodoCompleted(id);
+    handleSetTodoCompleted(id);
   }
 
   return (

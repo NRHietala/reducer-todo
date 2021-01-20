@@ -3,18 +3,18 @@ import React from 'react'
 import Todo from './Todo';
 
 const TodoList = (props) => {
-  const { filterCompletedTodos, setTodoCompleted } = props;
+  const { handleClearCompleted, handleSetTodoCompleted } = props;
 
   const handleClick = () => {
-    filterCompletedTodos();
+    handleClearCompleted();
   }
   return (
     <div className='todoList'>
         {props.todos.map(todo => {
           return <Todo key={todo.id}
           todo={todo}
-          filterCompletedTodos={filterCompletedTodos}
-          setTodoCompleted={setTodoCompleted}
+          handleClearCompleted={handleClearCompleted}
+          handleSetTodoCompleted={handleSetTodoCompleted}
           />
         })}
         <button onClick={handleClick}>Clear Completed Todos</button>
