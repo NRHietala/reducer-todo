@@ -31,13 +31,13 @@ export const reducer = (state = initialState, action ) => {
       return ({ ...state, todos: [...state.todos, newTodo]});
 
     case(SET_TODO_COMPLETED):
-      return ({ ...state, todos: [ state.todos.map(todo => {
+      return ({ ...state, todos: state.todos.map(todo => {
         if(todo.id === action.payload) {
           return ({...todo, completed: !todo.completed})
         } else {
           return todo;
         }
-      })]});
+      })});
 
     case CLEAR_COMPLETED:
       return {

@@ -24,7 +24,6 @@ function App() {
     dispatch(clearCompleted());
   }
 
-    console.log(state)
   return (
     <div className="App">
         <h2>useReducer Todo App</h2>
