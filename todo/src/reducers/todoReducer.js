@@ -25,7 +25,7 @@ export const reducer = (state = initialState, action ) => {
     case SET_TODO :
     const newTodo = {
       task: action.payload,
-      id: state.todos.length,
+      id: Date.now(),
       completed: false
     };
       return ({ ...state, todos: [...state.todos, newTodo]});

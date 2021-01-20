@@ -4,7 +4,7 @@ import Todo from './Todo';
 
 const TodoList = (props) => {
   const { handleClearCompleted, handleSetTodoCompleted } = props;
-  cosnt { state, dispatch } = useReducer()
+
 
   const handleClick = () => {
     handleClearCompleted();
